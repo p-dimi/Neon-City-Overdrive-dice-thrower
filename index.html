@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html>
+
+<header>
+<link rel="stylesheet" href="stylesheet.css"></link>
+
+<script src="https://code.jquery.com/jquery-3.5.1.min.js" ></script>
+
+<script type="text/javascript">
+$(document).ready(function(){
+var actionDice = 0,
+    dangerDice = 0;
+
+$("#action-counter").text(actionDice);
+$("#danger-counter").text(dangerDice);
+
+$("#action-minus").click(function(){
+    actionDice -= 1;
+    if (actionDice < 0){
+        actionDice = 0;
+    };
+    $("#action-counter").text(actionDice);
+});
+
+$("#action-plus").click(function(){
+    actionDice += 1;
+    $("#action-counter").text(actionDice);
+});
+
+$("#danger-minus").click(function(){
+    dangerDice -= 1;
+    if (dangerDice < 0){
+        dangerDice = 0;
+    };
+    $("#danger-counter").text(dangerDice);
+});
+
+$("#danger-plus").click(function(){
+    dangerDice += 1;
+    $("#danger-counter").text(dangerDice);
+});
+
+$("#reset-dice").click(function(){
+    actionDice=0;
+    dangerDice=0;
+    $("#danger-counter").text(dangerDice);
+    $("#action-counter").text(actionDice);
+    $("#action-dice").slideUp(200,"swing");
+    $("#danger-dice").slideUp(200,"swing");
+    $("#best-dice-div").slideUp(200,"swing");
+});
+
+var actionDiceArr = [],
+    dangerDiceArr = [];
+    
+$("#toss-dice").click(function(){
+    
+    $("#action-dice").empty();
+    $("#danger-dice").empty();
+    $("#best-dice-div").empty();
+    
+    actionDiceArr = [];
+    dangerDiceArr = [];
+    
+    for (i = 0; i < actionDice; i++){
+        actionDiceArr.push(Math.floor((Math.random() * 6) + 1));
+    
+    };
+    
+    for (i = 0; i < dangerDice; i++){
+        dangerDiceArr.push(Math.floor((Math.random() * 6) + 1));
+    
+    };
+
+    
+    // load the right images
+    for (n in actionDiceArr){
+        var i = actionDiceArr[n]; 
+
+        if(i == 1){
+            $("#action-dice").append('<img src="Ad1.png" alt="dice" />');
+        }
+        else if(i == 2){
+            $("#action-dice").append('<img src="Ad2.png" alt="dice" />');
+        }
+        else if(i == 3){
+            $("#action-dice").append('<img src="Ad3.png" alt="dice" />');
+        }
+        else if(i == 4){
+            $("#action-dice").append('<img src="Ad4.png" alt="dice" />');
+        }
+        else if(i == 5){
+            $("#action-dice").append('<img src="Ad5.png" alt="dice" />');
+        }
+        else if(i == 6){
+            $("#action-dice").append('<img src="Ad6.png" alt="dice" />');
+        }
+    }
+    
+    // load the right images
+    for (n in dangerDiceArr){
+        var i = dangerDiceArr[n]; 
+
+        if(i == 1){
+            $("#danger-dice").append('<img src="Dd1.png" alt="dice" />');
+        }
+        else if(i == 2){
+            $("#danger-dice").append('<img src="Dd2.png" alt="dice" />');
+        }
+        else if(i == 3){
+            $("#danger-dice").append('<img src="Dd3.png" alt="dice" />');
+        }
+        else if(i == 4){
+            $("#danger-dice").append('<img src="Dd4.png" alt="dice" />');
+        }
+        else if(i == 5){
+            $("#danger-dice").append('<img src="Dd5.png" alt="dice" />');
+        }
+        else if(i == 6){
+            $("#danger-dice").append('<img src="Dd6.png" alt="dice" />');
+        }
+    }
+    
+    $("#action-dice").slideDown(200,"swing");
+    $("#danger-dice").slideDown(200,"swing");
+    
+    // get best results :)
+    for (n in actionDiceArr){
+        for (m in dangerDiceArr){
+            if (actionDiceArr[n] == dangerDiceArr[m]){
+                actionDiceArr[n] = 0;
+                dangerDiceArr[m] = 0;
+            }
+        }
+    }
+    
+    var best = Math.max.apply(null, actionDiceArr);
+    
+    if (best == 6){
+        var bestCtr = 0;
+        for (n in actionDiceArr){
+            if (actionDiceArr[n] == 6){
+                bestCtr += 1;
+            };
+        };
+        
+        for (i = 0; i < bestCtr; i++){
+            $("#best-dice-div").append('<img src="Ad6.png" alt="dice" />');
+        };
+        
+    }
+    else if (best == 5){
+        $("#best-dice-div").append('<img src="Ad5.png" alt="dice" />');
+    }
+    else if (best == 4){
+        $("#best-dice-div").append('<img src="Ad4.png" alt="dice" />');
+    }
+    else if (best == 3){
+        $("#best-dice-div").append('<img src="Ad3.png" alt="dice" />');
+    }
+    else if (best == 2){
+        $("#best-dice-div").append('<img src="Ad2.png" alt="dice" />');
+    }
+    else if (best == 1){
+        $("#best-dice-div").append('<img src="Ad1.png" alt="dice" />');
+    }
+    else if (best == 0){
+        $("#best-dice-div").append('<img src="Ad0.png" alt="dice" />');
+    }
+    
+    $("#best-dice-div").slideDown(200,"swing");
+    
+});
+
+});
+
+</script>
+
+
+<div id="title">
+<h1>NEON CITY OVERDRIVE DICE THROWER</h1>
+</div>
+
+
+
+
+</header>
+
+<body>
+
+
+<div id="primary-div">
+<div id="dice-counter">
+
+
+<div id="action-dice-div" class="counter-div">
+<h2>Action Dice</h2>
+<h1 id="action-minus"><span>-</span></h1>
+<h1 id="action-counter"></h1>
+<h1 id="action-plus"><span>+</span></h1>
+</div>
+<div id="danger-dice-div" class="counter-div">
+<h2>Danger Dice</h2>
+<h1 id="danger-minus"><span>-</span></h1>
+<h1 id="danger-counter"></h1>
+<h1 id="danger-plus"><span>+</span></h1>
+</div>
+
+</div>
+
+<h2><span id="reset-dice">Reset Dice</span></h2>
+
+<h1><span id="toss-dice">Toss Dice</span></h1>
+
+<div id="dice-container">
+
+<div id="action-dice">
+
+</div>
+<div id="danger-dice">
+
+</div>
+
+<h1><span id="best-dice">Best Dice:</span></h1>
+<div id="best-dice-div">
+
+</div>
+
+</div>
+
+</div>
+
+
+
+
+
+</body>
+
+</html>
