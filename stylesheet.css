@@ -280,7 +280,7 @@ h1 #toss-dice {
 
 #reset-dice{
     transition:0.25s;
-    color:rgba(190,100,190,0.5);
+    color:rgba(200,160,210,0.75);
 }
 
 #reset-dice:hover {
