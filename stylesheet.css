@@ -244,7 +244,6 @@ h1 #toss-dice {
 }
 
 #action-dice, #danger-dice {
-    display:inline-block !important;
     margin-top: 25px;
     margin-bottom: 25px;
 }
@@ -278,9 +277,6 @@ h1 #toss-dice {
     color:rgba(190,100,190,0.5);
     }
 
-h2 {
-    
-}
 
 #reset-dice{
     transition:0.25s;
