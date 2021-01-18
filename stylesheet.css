@@ -32,6 +32,8 @@ h1, h2, p {
                                   supported by Chrome, Edge, Opera and Firefox */
 }
 
+@media only screen and (min-width: 760px) {
+
 #title{
     font-size:1.7rem;
     text-align:center;
@@ -169,4 +171,148 @@ h2 {
 #best-dice-div {
     display:none;
     border: 1px rgba(0,0,0,0) solid;
+}
+
+}
+
+
+
+
+
+
+
+
+@media only screen and (max-width: 759px){
+    
+    
+    head, header, body {
+        width:95vw !important;
+        margin-left:auto;
+        margin-right:auto;
+    }
+    
+    body {
+        height:100vh;
+    }
+
+    #title{
+    font-size:0.75rem;
+    text-align:center;
+    background: -webkit-linear-gradient(rgb(70,10,60), rgb(60,10,50));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    
+    line-height:100%;
+    
+    }
+    
+    #title h1{
+        line-height:2rem;
+    }
+
+
+
+h1 #toss-dice {
+  color:rgb(250,220,250);
+
+}
+
+#primary-div{
+    text-align:center;
+}
+
+#toss-dice{
+    transition:0.25s;
+}
+
+#toss-dice:hover{
+    cursor:pointer;
+    color:rgb(255,255,255);
+}
+
+#toss-dice:hover::before{
+    content:">>>";
+}
+
+#toss-dice:hover::after{
+    content:"<<<";
+}
+
+#dice-container{
+    height:100vh;
+  background-image: linear-gradient(rgb(70,10,60), rgb(170,110,160));
+}
+
+#action-dice, #danger-dice {
+    display:inline-block !important;
+    margin-top: 25px;
+    margin-bottom: 25px;
+}
+
+.counter-div {
+    display:inline-block !important;
+    padding-left:25px;
+    padding-right:25px;
+}
+
+.counter-div h1{
+    display:inline;
+    color:rgb(250,220,250);
+}
+
+.counter-div h1, .counter-div h2 {
+    cursor:default; 
+}
+
+.counter-div span{
+    transition: 0.5s;
+}
+
+.counter-div span:hover{
+    cursor:pointer !important;
+    color:rgb(250,200,240);
+}
+
+
+.counter-div h2{
+    color:rgba(190,100,190,0.5);
+    }
+
+h2 {
+    
+}
+
+#reset-dice{
+    transition:0.25s;
+    color:rgba(190,100,190,0.5);
+}
+
+#reset-dice:hover {
+    cursor:pointer;
+    color:rgba(250,200,250,1);
+    
+}
+
+#best-dice {
+  color:rgb(250,220,250);
+} 
+
+#action-dice, #danger-dice {
+    display:none;
+    border: 1px rgba(0,0,0,0) solid;
+}
+
+#best-dice-div {
+    display:none;
+    border: 1px rgba(0,0,0,0) solid;
+}
+
+#action-minus, #action-plus, #danger-minus, #danger-plus {
+    color:rgb(190,150,190) !important;
+    font-size:3rem !important;
+}
+#action-counter, #danger-counter{
+    font-size:3rem !important;
+}
+
 }
