@@ -45,8 +45,6 @@ h1, h2, p {
     animation: title-glow 4s ease-in-out infinite alternate;
 }
 
-
-
 h1 #toss-dice {
   color:rgb(250,220,250);
 
@@ -128,7 +126,7 @@ h1 #toss-dice {
 
 .counter-div span{
     transition: 0.5s;
-    color:rgb(10,00,20);
+    color:rgb(130,80,130);
 }
 
 .counter-div span:hover{
@@ -304,13 +302,16 @@ h1 #toss-dice {
     border: 1px rgba(0,0,0,0) solid;
 }
 
-#action-minus, #action-plus, #danger-minus, #danger-plus {
+.counter-div span {
     color:rgb(190,150,190) !important;
     font-size:3rem !important;
 }
-#action-counter, #danger-counter{
+
+.counter-div span:hover {
+    color:rgb(230,210,240) !important;
     font-size:3rem !important;
 }
+
 
 img {
     height:52px;
