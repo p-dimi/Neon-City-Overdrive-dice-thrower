@@ -51,6 +51,15 @@ h1 #toss-dice {
   animation: glow 1s ease-in-out infinite alternate;
 }
 
+#check-result{
+    font-size:2rem;
+    color:rgb(250,220,250);
+    font-weight:bold;
+    text-shadow: 0 0 5px #fff, 0 0 10px #ff4da6, 0 0 15px #ff4da6, 0 0 20px #ff4da6, 0 0 25px #ff4da6, 0 0 30px #ff4da6, 0 0 35px #ff4da6;
+}
+
+
+
 @-webkit-keyframes title-glow{
     from {
         text-shadow: 0 0 0px rgba(200,150,200,0);
@@ -182,6 +191,12 @@ h2 {
 
 
 @media only screen and (max-width: 759px){
+    
+    #check-result{
+        font-size:2rem;
+        color:rgb(250,220,250);
+        font-weight:bold;
+    }
     
     
     head, header, body {

@@ -52,6 +52,7 @@ $("#reset-dice").click(function(){
     $("#action-dice").slideUp(200,"swing");
     $("#danger-dice").slideUp(200,"swing");
     $("#best-dice-div").slideUp(200,"swing");
+    $("#check-result").empty();
 });
 
 var actionDiceArr = [],
@@ -62,6 +63,7 @@ $("#toss-dice").click(function(){
     $("#action-dice").empty();
     $("#danger-dice").empty();
     $("#best-dice-div").empty();
+    $("#check-result").empty();
     
     actionDiceArr = [];
     dangerDiceArr = [];
@@ -148,6 +150,12 @@ $("#toss-dice").click(function(){
             };
         };
         
+        if (bestCtr > 1){
+            $("#check-result").text("SUCCESS WITH %d BOONS".replace('%d', bestCtr-1));
+        } else {
+            $("#check-result").text("SUCCESS!");
+        }
+        
         for (i = 0; i < bestCtr; i++){
             $("#best-dice-div").append('<img src="dice/Acd6.png" alt="dice" />');
         };
@@ -155,24 +163,30 @@ $("#toss-dice").click(function(){
     }
     else if (best == 5){
         $("#best-dice-div").append('<img src="dice/Acd5.png" alt="dice" />');
+        $("#check-result").text("Partial Success");
     }
     else if (best == 4){
         $("#best-dice-div").append('<img src="dice/Acd4.png" alt="dice" />');
+        $("#check-result").text("Partial Success");
     }
     else if (best == 3){
         $("#best-dice-div").append('<img src="dice/Acd3.png" alt="dice" />');
+        $("#check-result").text("Failed");
     }
     else if (best == 2){
         $("#best-dice-div").append('<img src="dice/Acd2.png" alt="dice" />');
+        $("#check-result").text("Failed");
     }
     else if (best == 1){
         $("#best-dice-div").append('<img src="dice/Acd1.png" alt="dice" />');
+        $("#check-result").text("BOTCHED!");
     }
     else if (best == 0){
         $("#best-dice-div").append('<img src="dice/Acd0.png" alt="dice" />');
+        $("#check-result").text("BOTCHED!");
     }
     
-    $("#best-dice-div").slideDown(200,"swing");
+    $("#best-dice-div").slideDown(200,"swing");    
     
 });
 
@@ -229,6 +243,8 @@ $("#toss-dice").click(function(){
 <div id="best-dice-div">
 
 </div>
+<h1 id="check-result"></h1>
+
 
 </div>
 
