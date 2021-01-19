@@ -151,7 +151,13 @@ $("#toss-dice").click(function(){
         };
         
         if (bestCtr > 1){
-            $("#check-result").text("SUCCESS WITH %d BOONS".replace('%d', bestCtr-1));
+            if (bestCtr - 1 > 1){
+                $("#check-result").text("SUCCESS WITH %d BOONS!".replace('%d', bestCtr-1));
+            
+            } else {
+                $("#check-result").text("SUCCESS WITH %d BOON!".replace('%d', bestCtr-1));
+            }
+            
         } else {
             $("#check-result").text("SUCCESS!");
         }
